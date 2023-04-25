@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layout/style.ejs') %>
+
+  <body>
+    <div class="root">
+      <%- include('layout/header.ejs') %>
+        <div class="main mt-1">
+          <div class="container-sm">
+            <div class="alert alert-primary" role="alert">
+              <%= user.email %>
+            </div>
+            <div class="alert alert-danger" role="alert">
+              <%= user.password %>
+            </div>
+            <div class="alert alert-info  " role="alert">
+              <%= user.remember_token %>
+            </div>
+          </div>
+        </div>
+        <%- include('layout/footer.ejs') %>
+        <%- include('layout/javascript.ejs') %>
+  </body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layout/style.ejs') %>
+
+  <body>
+    <div class="root">
+      <%- include('layout/header.ejs') %>
+        <div class="main mt-1">
+          <div class="container-sm">
+            <div class="p-3 shadown-lg">
+              <form action="/user/create" method="post">
+                <div class="mb-3">
+                  <label for="exampleInputText1" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleInputText1" class="form-label">Some text</label>
+                  <input type="password" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleInputText1" class="form-label">Some text</label>
+                  <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                </div>
+                <button type="submit" class="btn btn-danger">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <%- include('layout/footer.ejs') %>
+          <%- include('layout/javascript.ejs') %>
+  </body>
+
+</html>
