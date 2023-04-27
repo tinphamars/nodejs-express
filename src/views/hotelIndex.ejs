@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layout/style.ejs') %>
+
+  <body>
+    <div class="root">
+      <%- include('layout/header.ejs') %>
+        <div class="main mt-1">
+          <div class="container-sm p-2">
+            <div class="row">
+              <% hotels.forEach(function(hotel) { %>
+                <div class="col-md-4">
+                  <div class="card text-white bg-dark mb-3">
+                    <div class="card-header text-end">
+                      <span class="text-danger fw-bolder">City: </span>
+                      <%= hotel.city.name %>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        <%= hotel.title %>
+                      </h5>
+                      <span><%= hotel.tran.value %></span>
+                      <img src="<%= hotel.img %>" alt="" class="w-100 rounded-3">
+                    </div>
+                  </div>
+                </div>
+                <% }); %>
+            </div>
+          </div>
+        </div>
+        <%- include('layout/footer.ejs') %>
+        <%- include('layout/javascript.ejs') %>
+  </body>
+
+</html>

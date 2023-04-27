@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layout/style.ejs') %>
+
+  <body>
+    <div class="root">
+      <%- include('layout/header.ejs') %>
+        <div class="main mt-1">
+          <div class="container-sm">
+            <div class="p-3 shadons-lg">
+              <form action="/master/update/<%= edit.id %>" method="POST">
+                <div class="mb-3">
+                  <label for="exampleInputText1" class="form-label">Name</label>
+                  <input type="text" name="name" class="form-control" value="<%= edit.name %>">
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleInputText1" class="form-label">Avatar</label>
+                  <input type="text" name="avatar" class="form-control" value="<%= edit.avatar %>">
+                </div>
+
+                <button type="submit" class="btn btn-warning">Submit</button>
+                <a class="btn btn-outline-success" href="/master">Cancel</a>
+              </form>
+            </div>
+          </div>
+        </div>
+        <%- include('layout/footer.ejs') %>
+        <%- include('layout/javascript.ejs') %>
+  </body>
+
+</html>

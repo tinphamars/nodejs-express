@@ -7,23 +7,23 @@
       <%- include('layout/header.ejs') %>
         <div class="main mt-1">
           <div class="container-sm">
-            <div class="p-3 shadown-lg">
-              <form action="/user/create" method="post">
+            <div class="p-3 shadons-lg">
+              <form action="/user/create" method="POST">
                 <div class="mb-3">
                   <label for="exampleInputText1" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                  <input type="email" name="email" class="form-control">
                 </div>
 
                 <div class="mb-3">
-                  <label for="exampleInputText1" class="form-label">Some text</label>
-                  <input type="password" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                  <label for="exampleInputText1" class="form-label">Password</label>
+                  <input type="password" name="password" class="form-control">
                 </div>
 
                 <div class="mb-3">
-                  <label for="exampleInputText1" class="form-label">Some text</label>
-                  <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                  <label for="exampleInputText1" class="form-label">User name</label>
+                  <input type="text" name="name" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-danger">Submit</button>
+                <button type="submit" class="btn btn-warning">Submit</button>
               </form>
             </div>
           </div>

@@ -17,7 +17,11 @@ class UserController {
   }
 
   async createPost(req, res) {
-    console.log(req.body)
+    if (req.body) {
+      const ser = await User.create(req.body)
+      console.log(ser)
+      // res.redirect('/master')
+    }
   }
 }
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layout/style.ejs') %>
+
+  <body>
+    <div class="root">
+      <%- include('layout/header.ejs') %>
+        <div class="main mt-1">
+          <div class="container-sm">
+            <div class="p-3 shadow-lg">
+              <div class="d-flex position-relative">
+                <img
+                  width="300"
+                  src="<%= master.avatar %>"
+                  class="flex-shrink-0 rounded-3 me-2 shadow" alt="user img">
+                <div>
+                  <h5 class="mt-0 text-danger">
+                    <%= master.name %>
+                  </h5>
+                  <a href="/master" class="stretched-link">List master</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%- include('layout/footer.ejs') %>
+        <%- include('layout/javascript.ejs') %>
+  </body>
+
+</html>
