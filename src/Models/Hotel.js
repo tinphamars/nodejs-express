@@ -3,6 +3,8 @@ const Tran = require('./Tran')
 const DataTypes = require('sequelize')
 const sequelize = require('../config/database')
 
+sequelize.sync({ force: false })
+
 const Hotel = sequelize.define(
   "hotels",
   {

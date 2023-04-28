@@ -1,5 +1,6 @@
 const DataTypes = require('sequelize')
 const sequelize = require('../config/database')
+const Tran = require('../Models/Tran')
 
 const City = sequelize.define(
   "cities",
@@ -15,5 +16,9 @@ const City = sequelize.define(
   },
   { timestamps: false }
 );
+
+City.hasMany(Tran, {
+  foreignKey: 'foreign_key'
+})
 
 module.exports = City;
