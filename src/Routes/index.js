@@ -1,5 +1,6 @@
 const user = require("./user")
 const city = require("./city")
+const login = require("./login")
 const hotel = require("./hotel")
 const master = require("./master")
 
@@ -11,6 +12,7 @@ const webRoute = (appExpress) => {
   appExpress.use('/master', master)
   appExpress.use('/city', city)
   appExpress.use('/hotel', hotel)
+  appExpress.use('/login', login)
 }
 
 module.exports = webRoute

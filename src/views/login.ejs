@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('layout/style.ejs') %>
+<body>
+  <div class="root">
+    <%- include('layout/header.ejs') %>
+    <div class="main mt-1">
+      <div class="container-sm">
+        <form action="/login" method="post">
+          <div class="mb-3">
+            <label for="exampleInputEmail" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="exampleInputEmail" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="exampleInputPassword" name="password">
+          </div>
+          <div class="text-center">
+            <button class="btn btn-danger" type="submit">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <%- include('layout/footer.ejs') %>
+    <%- include('layout/javascript.ejs') %>
+</body>
+
+</html>
