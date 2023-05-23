@@ -2,31 +2,33 @@
 <html lang="en">
 <%- include('layout/style.ejs') %>
 
-  <body>
-    <div class="root">
-      <%- include('layout/header.ejs') %>
-        <div class="main mt-1">
-          <div class="container-sm">
-            <ol class="list-group list-group-numbered">
-              <% masters.forEach(function(master) { %>
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <a class="btn btn-warning  w-25" href="master/<%= master.id %>">
-                    <li class="list-group-item">
-                      <%= master.name %>
-                    </li>
-                  </a>
-                  <a class="btn btn-info w-25" href="/master/update/<%= master.id %>">Edit</a>
-                  <form action="/master/delete" method="POST">
-                    <input type="hidden" name="id"  value="<%= master.id %>">
-                    <button type="submit" class="btn btn-danger w-100">Delete</button>
-                  </form>
+<body>
+  <div class="root">
+    <%- include('layout/header.ejs') %>
+    <div class="main mt-1 mb-3">
+      <div class="container-sm">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <% masters.forEach(element => { %>
+          <div class="col">
+            <a href="/master/<%= element.id %>" class="text-decoration-none text-black">
+              <div class="card shadow-sm">
+                <img src="<%= element.avatar %>" class="card-img-top" alt="<%= element.name %>" height="300">
+                <div class="card-body">
+                  <h5 class="card-title text-capitalize"><%= element.name %></h5>
                 </div>
-                <% }); %>
-            </ol>
+              </div>
+            </a>
+            <div class="mt-2">
+              <a href="master/update/<%= element.id %>" class="btn btn-outline-warning">edit</a>
+            </div>
           </div>
+          <% }) %>
         </div>
-        <%- include('layout/footer.ejs') %>
-        <%- include('layout/javascript.ejs') %>
-  </body>
+      </div>
+    </div>
+  </div>
+  <%- include('layout/footer.ejs') %>
+  <%- include('layout/javascript.ejs') %>
+</body>
 
 </html>

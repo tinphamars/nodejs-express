@@ -1,6 +1,7 @@
 const Hotel = require('../Models/Hotel')
 const City = require('../Models/City')
 const Tran = require('../Models/Tran')
+const passport = require('passport')
 
 class HotelController {
 
@@ -9,7 +10,7 @@ class HotelController {
       include: City
     })
 
-    res.render('hotelIndex', { hotels })
+    res.render('hotelIndex', { hotels, req })
   }
 
 }

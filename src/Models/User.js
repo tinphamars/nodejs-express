@@ -8,6 +8,10 @@ const User = sequelize.define(
       type: DataTypes.BIGINT,
       allowNull: false,
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -18,7 +22,7 @@ const User = sequelize.define(
     },
     email_verified_at: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -26,11 +30,11 @@ const User = sequelize.define(
     },
     remember_token: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     settings: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     created_at: {
       type: DataTypes.TIME,

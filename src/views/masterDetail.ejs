@@ -2,29 +2,31 @@
 <html lang="en">
 <%- include('layout/style.ejs') %>
 
-  <body>
-    <div class="root">
-      <%- include('layout/header.ejs') %>
-        <div class="main mt-1">
-          <div class="container-sm">
-            <div class="p-3 shadow-lg">
-              <div class="d-flex position-relative">
-                <img
-                  width="300"
-                  src="<%= master.avatar %>"
-                  class="flex-shrink-0 rounded-3 me-2 shadow" alt="user img">
-                <div>
-                  <h5 class="mt-0 text-danger">
-                    <%= master.name %>
-                  </h5>
-                  <a href="/master" class="stretched-link">List master</a>
+<body>
+  <div class="root">
+    <%- include('layout/header.ejs') %>
+    <div class="main mt-1">
+      <div class="container-sm">
+        <div class="p-3 shadow-lg">
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-5">
+                <img src="<%= master.avatar %>" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-7">
+                <div class="card-body">
+                  <h5 class="card-title text-capitalize text-success"><%= master.name %></h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <%- include('layout/footer.ejs') %>
-        <%- include('layout/javascript.ejs') %>
-  </body>
+      </div>
+    </div>
+    <%- include('layout/footer.ejs') %>
+    <%- include('layout/javascript.ejs') %>
+</body>
 
 </html>

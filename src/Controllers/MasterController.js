@@ -1,13 +1,22 @@
-const { where } = require('sequelize')
 const Master = require('../Models/Master')
+const client = require("../redis");
 
 class MasterController {
 
-  async index(req, res) {
-    const masters = await Master.findAll()
-    res.render('master', { masters })
-  }
+  index = async (req, res) => {
+    const cacheMaster = await client.get('master')
 
+    if (cacheMaster) {
+      console.log('in cache')
+      const masters = JSON.parse(cacheMaster);
+
+      return res.render('master', { masters });
+    } else {
+      const masters = await Master.findAll();
+      await client.set('master', JSON.stringify(masters));
+      return res.render('master', { masters });
+    }
+  };
   async detail(req, res) {
     const master = await Master.findOne({ where: { 'id': req.params.id } })
     res.render('masterDetail', { master })
@@ -21,6 +30,7 @@ class MasterController {
     if (req.body) {
       const ser = await Master.create(req.body)
       if (ser) {
+        await client.del('master');
         res.redirect('/master')
       }
     }
@@ -31,6 +41,7 @@ class MasterController {
     const { name, avatar } = req.body;
     const number = await Master.update({ name, avatar }, { where: { 'id': masterId } })
     if (number == 1) {
+      await client.del('master');
       return res.redirect('/master')
     }
   }
@@ -38,18 +49,22 @@ class MasterController {
   async getIdUpdate(req, res) {
     const masterId = req.params.id
     const edit = await Master.findOne({ where: { 'id': masterId } })
-    console.log('getIdUpdate', masterId)
     res.render('masterEdit', { edit })
   }
 
   async delete(req, res) {
-    Master.destroy({
-      where: { id: req.body.id }
-    }).then(function (deletedUser) {
+    try {
+      const deletedUser = await Master.destroy({
+        where: { id: req.body.id }
+      });
       if (deletedUser) {
+        await client.del('master');
         return res.redirect('/master');
       }
-    })
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal server error');
+    }
   }
 }
 
